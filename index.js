@@ -8,14 +8,6 @@ function props(v)
     return Promise.all(_.map(v, v1 => {
       return props(v1);
     }));
-  } else if(_.isPlainObject(v)) {
-    let keys = _.keys(v);
-    let values = _.map(keys, k => {
-      return props(v[k]);
-    });
-    return Promise.all(values).then(values => {
-      return _.zipObject(keys, values);
-    });
   } else if(_.isMap(v)) {
     let values = [];
     for(let p of v) {
@@ -35,6 +27,16 @@ function props(v)
   } else if(!_.isNil(v) && v.then) {
     return v.then(v => {
       return props(v);
+    });
+  } else if(_.isFunction(v)) {
+    return Promise.resolve(v);
+  } else if(_.isObject(v)) {
+    let keys = _.keys(v);
+    let values = _.map(keys, k => {
+      return props(v[k]);
+    });
+    return Promise.all(values).then(values => {
+      return _.zipObject(keys, values);
     });
   } else {
     return Promise.resolve(v);
