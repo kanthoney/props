@@ -24,5 +24,12 @@ describe('Array tests', () => {
     });
   });
 
+  it('should resolve empty array', done => {
+    props([]).then(result => {
+      expect(result).toEqual([]);
+      done();
+    }).catch(done);
+  });
+
 });
 

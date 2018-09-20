@@ -3,6 +3,7 @@
 const props = require('../index');
 const success = require('./success');
 const failure = require('./failure');
+const _ = require('lodash');
 
 describe("Map tests", () => {
 
@@ -49,6 +50,13 @@ describe("Map tests", () => {
       expect(err).toBe("key3");
       done();
     });
+  });
+
+  it('should resolve empty map', done => {
+    props(new Map()).then(result => {
+      expect(_.isEqual(result, new Map())).toBeTruthy();
+      done();
+    }).catch(done);
   });
 
 });

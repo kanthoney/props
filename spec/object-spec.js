@@ -58,5 +58,12 @@ describe('Object tests', () => {
     }).catch(done);
   });
 
+  it('should resolve empty object', done => {
+    props({}).then(result => {
+      expect(result).toEqual({});
+      done();
+    }).catch(done);
+  });
+
 });
 

@@ -31,5 +31,13 @@ describe('Set tests', () => {
       done();
     });
   });
+
+  it('should resolve empty set', done => {
+    props(new Set()).then(result => {
+      expect(result).toEqual(new Set());
+      done();
+    }).catch(done);
+  });
+
 });
 
