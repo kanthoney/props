@@ -1,0 +1,23 @@
+{
+  "name": "@kanthoney/props",
+  "version": "0.0.1",
+  "description": "deep props function for promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [
+    "props",
+    "promise",
+    "deep"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kanthoney/props"
+  },
+  "author": "Kevin Anthoney",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}
